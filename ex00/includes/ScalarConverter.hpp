@@ -3,6 +3,9 @@
 
 #include <string>
 #include <iostream>
+#include <sstream>
+#include <limits>
+#include <cctype>
 
 class ScalarConverter {
 
@@ -12,26 +15,17 @@ class ScalarConverter {
         ScalarConverter( const ScalarConverter& cpy);
         ScalarConverter& operator=(const ScalarConverter& rhs);
 
-        static void convert( std::string str);
+        static void convert( const std::string& str );
 };
 
-// bool is_int(const std::string &str) {
-    
-//     try {
-//         size_t pos;
-//         int value = std::stoi(str, &pos);
-//         std::cout << "value : " << value << std::endl;
-//         if (pos != str.length())
-//             return false;
-//     }
-//     catch (const std::invalid_argument& e) {
-//         std::cout << "Exception caught: " << e.what() << std::endl;
-//         return false;
-//     } catch (const std::out_of_range& e) {
-//         std::cout << "Exception caught: " << e.what() << std::endl;
-//         return false;
-//     }
-//     return true;
-// }
+bool is_char(const std::string& str);
+bool is_int(const std::string &str);
+bool is_float(const std::string& str);
+bool is_double(const std::string& str);
+
+bool convertStrToInt(const std::string& str, int& nbr);
+bool convertStrToFloat(const std::string& str, float& nbr);
+bool convertStrToDouble(const std::string& str, double& nbr);
+
 
 #endif

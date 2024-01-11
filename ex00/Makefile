@@ -3,12 +3,13 @@ NAME =	ex00
 SRC =	${addprefix sources/, \
 			main.cpp \
 			ScalarConverter.cpp \
+			typeDeterminer.cpp \
 		}
 
 OBJ		= ${SRC:sources/%.cpp=objects/%.o}
 
 CC		= c++
-FLAGS	= -Wall -Wextra -Werror -std=c++98 #-g3
+FLAGS	= -Wall -Wextra -Werror -std=c++98
 
 ${NAME}: ${OBJ} includes/*.hpp
 		 ${CC} ${FLAGS} -o ${NAME} ${OBJ}
