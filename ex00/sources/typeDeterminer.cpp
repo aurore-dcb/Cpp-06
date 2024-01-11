@@ -81,3 +81,9 @@ bool is_double(const std::string& str) {
         return false;
     return true;
 }
+
+bool is_lim(const std::string& str) {
+
+    return (str == "-inff" || str == "+inff" || str == "nanf" \
+    || str == "-inf" || str == "+inf" || str == "nan");
+}

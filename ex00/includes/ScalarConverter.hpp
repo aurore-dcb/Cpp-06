@@ -22,6 +22,7 @@ bool is_char(const std::string& str);
 bool is_int(const std::string &str);
 bool is_float(const std::string& str);
 bool is_double(const std::string& str);
+bool is_lim(const std::string& str);
 
 bool convertStrToInt(const std::string& str, int& nbr);
 bool convertStrToFloat(const std::string& str, float& nbr);

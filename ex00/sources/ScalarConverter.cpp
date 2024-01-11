@@ -97,10 +97,31 @@ void convertFromDouble(const std::string& str) {
     }
 }
 
+void convertFromLim(const std::string& str) {
+
+    std::cout << "char: impossible" << std::endl;
+    std::cout << "int: impossible" << std::endl;
+    if (str == "nanf" || str == "-inff" || str == "+inff") {
+        std::cout << "float: " << str << std::endl;
+    } else {
+        std::cout << "float: " << str << "f" << std::endl;
+    }
+    if (str == "nanf")
+        std::cout << "double: nan" << std::endl;
+    else if (str == "-inff")
+        std::cout << "double: -inf" << std::endl;
+    else if (str == "+inff")
+        std::cout << "double: +inf" << std::endl;
+    else
+        std::cout << "double: " << str << std::endl;
+}
+
 /* Converti str dans les 3 autres type qu'elle n'est pas */
 void ScalarConverter::convert(const std::string& str) {
 
-    if (is_char(str)) {
+    if (is_lim(str)) {
+        convertFromLim(str);
+    } else if (is_char(str)) {
         convertFromChar(str);
     } else if (is_int(str)) {
         convertFromInt(str);
