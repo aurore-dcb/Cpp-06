@@ -30,6 +30,8 @@ void identify(Base* p) {
         std::cout << "ptr Type: B" << std::endl;
     } else if (C* c = dynamic_cast<C*>(p)) {
         std::cout << "ptr Type: C" << std::endl;
+    } else {
+        std::cout << "ptr Type: Unknown" << std::endl;
     }
 }
 
@@ -39,17 +41,21 @@ void identify(Base& p) {
         A& a = dynamic_cast<A&>(p);
         std::cout << "ref Type: A" << std::endl;
         (void)a;
+        return;
     } catch (std::exception& e) {}
     try {
         B& b = dynamic_cast<B&>(p);
         std::cout << "ref Type: B" << std::endl;
         (void)b;
+        return;
     } catch (std::exception& e) {}
     try {
         C& c = dynamic_cast<C&>(p);
         std::cout << "ref Type: C" << std::endl;
         (void)c;
+        return;
     } catch (std::exception& e) {}
+    std::cout << "ref Type: Unknown" << std::endl;
 }
 
 
@@ -60,6 +66,6 @@ int main() {
     identify(p);
     identify(*p);
     delete p;
-
+    
     return (0);
 }
