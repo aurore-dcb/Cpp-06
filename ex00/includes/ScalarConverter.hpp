@@ -10,12 +10,14 @@
 class ScalarConverter {
 
     public :
-        ScalarConverter( void );
-        ~ScalarConverter( void );
         ScalarConverter( const ScalarConverter& cpy);
         ScalarConverter& operator=(const ScalarConverter& rhs);
 
         static void convert( const std::string& str );
+    
+    private:
+        ~ScalarConverter( void );
+        ScalarConverter( void );
 };
 
 bool is_char(const std::string& str);
