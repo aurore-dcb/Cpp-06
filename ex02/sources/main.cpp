@@ -25,24 +25,41 @@ Base* generate(void) {
 void identify(Base* p) {
 
     if (A* a = dynamic_cast<A*>(p)) {
-        std::cout << "Type: A" << std::endl;
+        std::cout << "ptr Type: A" << std::endl;
     } else if (B* b = dynamic_cast<B*>(p)) {
-        std::cout << "Type: B" << std::endl;
+        std::cout << "ptr Type: B" << std::endl;
     } else if (C* c = dynamic_cast<C*>(p)) {
-        std::cout << "Type: C" << std::endl;
+        std::cout << "ptr Type: C" << std::endl;
     }
 }
 
 void identify(Base& p) {
-    
+
+    try {
+        A& a = dynamic_cast<A&>(p);
+        std::cout << "ref Type: A" << std::endl;
+        (void)a;
+    } catch (std::exception& e) {}
+    try {
+        B& b = dynamic_cast<B&>(p);
+        std::cout << "ref Type: B" << std::endl;
+        (void)b;
+    } catch (std::exception& e) {}
+    try {
+        C& c = dynamic_cast<C&>(p);
+        std::cout << "ref Type: C" << std::endl;
+        (void)c;
+    } catch (std::exception& e) {}
 }
 
 
 
 int main() {
 
-    Base *r = generate();
-    identify(r);
-    delete r;
+    Base *p = generate();
+    identify(p);
+    identify(*p);
+    delete p;
+
     return (0);
 }
